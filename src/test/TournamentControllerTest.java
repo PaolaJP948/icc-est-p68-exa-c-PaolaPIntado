@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 
 public class TournamentControllerTest {
 
-    private TournamentController controller;
+    private Tournament controller;
     private static final String FILA_ESTUDIANTE = cargarFilaEstudiante();
 
     private static String cargarFilaEstudiante() {
@@ -34,7 +34,7 @@ public class TournamentControllerTest {
 
     private void invocarMetodoOrdenamiento(String methodName, Tournament[] data) {
         try {
-            Method method = TournamentController.class.getMethod(methodName, Tournament[].class);
+            Method method = Tournament.class.getMethod(methodName, Tournament[].class);
             method.invoke(controller, (Object) data);
         } catch (NoSuchMethodException e) {
             org.junit.jupiter.api.Assertions.fail(
@@ -47,7 +47,7 @@ public class TournamentControllerTest {
 
     private Tournament invocarBusqueda(String methodName, Tournament[] sorted, int value) {
         try {
-            Method method = TournamentController.class.getMethod(methodName, Tournament[].class, int.class);
+            Method method = Tournament.class.getMethod(methodName, Tournament[].class, int.class);
             return (Tournament) method.invoke(controller, sorted, value);
         } catch (NoSuchMethodException e) {
             org.junit.jupiter.api.Assertions.fail(
@@ -61,7 +61,7 @@ public class TournamentControllerTest {
 
     @BeforeEach
     public void setUp() {
-        controller = new TournamentController();
+        controller = new Tournament();
 
         if (FILA_ESTUDIANTE == null || FILA_ESTUDIANTE.trim().isEmpty()) {
             throw new RuntimeException("ERROR: Configure FILA_ESTUDIANTE en student.env con A o B.");

@@ -1,5 +1,13 @@
+import controller.Tournament;
+import models.Athlete;
+import models.Club;
 
 public class AppTournament {
+
+
+       
+
+
 
         public static Tournament[] getTournaments() {
                 // Copa Andina = 45
@@ -118,7 +126,7 @@ public class AppTournament {
                                 new Athlete("AU. Quito", 5, false),
                                 new Athlete("AV. Pazmino", 10, true)
                 };
-                Tournament copaFrontera = new Tournament("Copa Frontera",
+                Tournament copaFrontera = new Tournament("Copa Frontera",orienteAthletes),
                                 new Club[] { new Club("Oriente FC", orienteAthletes),
                                                 new Club("Occidente FC", occidenteAthletes) });
 
@@ -139,6 +147,33 @@ public class AppTournament {
                  * Aquí debe estar el código para ejecutar la aplicación, utilizando el
                  * TournamentController para mostrar los resultados de cada torneo.
                  */
+                Tournament[]  tournaments = getTournaments();
+
+                Tournament p = new Tournament();
+
+                System.out.println("Listado Original");
+
+                for (Tournament n  :  tournaments) {
+                        
+                        System.out.println(n.getName() + n.getTotalStarterPoints());
+                }
+
+                System.out.println( "Listado Ordenado");
+                p.sortSelectionDesc(tournaments);
+                p.imprimir(tournaments);
+
+                System.out.println("Resultado de las 2 busquedas");
+                Tournament o = o.binarySearchByTotalStarterPointsFilaB(tournaments, 0);
+
+                if( o != null){
+                        System.out.println(o.getName() + o.getTotalStarterPoints());
+                }else{
+                        System.out.println("No Encontrado");
+                }
+
+                
+
+         
 
         }
 }

@@ -1,0 +1,52 @@
+package models;
+
+import java.util.Arrays;
+
+public class Tournament {
+  private String name;
+  private Club[] clubs;
+  public Tournament() {
+  }
+  public Tournament(String name, Club[] clubs) {
+    this.name = name;
+    this.clubs = clubs;
+  }
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+  public Club[] getClubs() {
+    return clubs;
+  }
+  public void setClubs(Club[] clubs) {
+    this.clubs = clubs;
+  }
+
+  public int getTotalStarterPoints() {
+    int contador = 0;
+
+    for (Club club : clubs) {
+      for (Athlete atle : club.getAthletes()) {
+        if(atle.isStarter()){
+          contador ++;
+        }
+
+        
+      }
+      
+    }
+    return contador;
+
+
+  }
+
+  @Override
+  public String toString() {
+    return "Tournament [name=" + name + ", clubs=" + Arrays.toString(clubs) + "]";
+  }
+
+  
+
+}
