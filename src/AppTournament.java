@@ -4,11 +4,6 @@ import models.Club;
 
 public class AppTournament {
 
-
-       
-
-
-
         public static Tournament[] getTournaments() {
                 // Copa Andina = 45
                 Athlete[] condorAthletes = {
@@ -147,33 +142,29 @@ public class AppTournament {
                  * Aquí debe estar el código para ejecutar la aplicación, utilizando el
                  * TournamentController para mostrar los resultados de cada torneo.
                  */
-                Tournament[]  tournaments = getTournaments();
+                Tournament[] tournaments = getTournaments();
 
                 Tournament p = new Tournament();
 
                 System.out.println("Listado Original");
 
-                for (Tournament n  :  tournaments) {
-                        
+                for (Tournament n : tournaments) {
+
                         System.out.println(n.getName() + n.getTotalStarterPoints());
                 }
 
-                System.out.println( "Listado Ordenado");
+                System.out.println("Listado Ordenado");
                 p.sortSelectionDesc(tournaments);
                 p.imprimir(tournaments);
 
                 System.out.println("Resultado de las 2 busquedas");
                 Tournament o = o.binarySearchByTotalStarterPointsFilaB(tournaments, 0);
 
-                if( o != null){
+                if (o != null) {
                         System.out.println(o.getName() + o.getTotalStarterPoints());
-                }else{
+                } else {
                         System.out.println("No Encontrado");
                 }
-
-                
-
-         
 
         }
 }

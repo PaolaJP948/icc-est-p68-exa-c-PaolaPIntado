@@ -62,7 +62,7 @@ public class Tournament {
     for (Tournament n  :  tournaments) {
                         
       System.out.println(n.getTotalStarterPoints() + n.getTotalStarterPoints());
-        }
+        s}
   }
 
 
